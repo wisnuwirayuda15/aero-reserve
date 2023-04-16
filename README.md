@@ -53,6 +53,9 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br>
 
 ## Contoh API Response:
+```
+ https://flight-restful-api.com/api/flights?limit=2
+```
 ```json
 {
     "status": 200,
