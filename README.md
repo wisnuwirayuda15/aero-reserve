@@ -94,7 +94,7 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br><br><br>
 
 ```
- http://flight-api.test/api/flights?search=Xianyang
+ http://flight-restful-api.com/api/flights?search=Xianyang
 ```
 ```json
 {
@@ -162,7 +162,7 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br><br><br>
 
 ```
- http://flight-api.test/api/flights/50
+ http://flight-restful-api.com/api/flights/50
 ```
 ```json
 {
@@ -186,7 +186,7 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br><br><br>
 
 ```
- http://flight-api.test/api/flights?limit=5&airline&departure&class
+ http://flight-restful-api.com/api/flights?limit=5&airline&departure&class
 ```
 ```json
 {
@@ -223,7 +223,7 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br><br><br>
 
 ```
- http://flight-api.test/api/flights?keberangkatan
+ http://flight-restful-api.com/api/flights?keberangkatan
 ```
 ```json
 {
@@ -237,7 +237,7 @@ Mendapatkan data dengan **{id}** yang spesifik:
 <br><br><br>
 
 ```
- http://flight-api.test/api/flights?search=qwerty
+ http://flight-restful-api.com/api/flights?search=qwerty
 ```
 ```json
 {
