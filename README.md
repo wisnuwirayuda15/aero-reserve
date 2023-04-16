@@ -90,5 +90,161 @@ Mendapatkan data dengan **{id}** yang spesifik:
         }
     ]
 }
+```
+<br><br><br>
 
+```
+ http://flight-api.test/api/flights?search=Xianyang
+```
+```json
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 3,
+            "airline": "Shandong Airlines",
+            "departure": "Xianyang (XIY)",
+            "arrival": "Chu-Bu Centrair International (Central Japan International) (NGO)",
+            "class": "Business",
+            "price": 5360840,
+            "duration": "5h 10m",
+            "scheduled": "2023-04-17T05:55:00+00:00",
+            "estimated": "2023-04-17T11:05:00+00:00",
+            "date": "2023-04-17",
+            "created_at": "2023-04-16T15:28:52.000000Z",
+            "updated_at": "2023-04-16T15:28:52.000000Z"
+        },
+        {
+            "id": 4,
+            "airline": "Shandong Airlines",
+            "departure": "Xianyang (XIY)",
+            "arrival": "Kansai International (KIX)",
+            "class": "Business",
+            "price": 8573678,
+            "duration": "5h 0m",
+            "scheduled": "2023-04-17T05:45:00+00:00",
+            "estimated": "2023-04-17T10:45:00+00:00",
+            "date": "2023-04-17",
+            "created_at": "2023-04-16T15:28:52.000000Z",
+            "updated_at": "2023-04-16T15:28:52.000000Z"
+        },
+        {
+            "id": 5,
+            "airline": "Sichuan Airlines",
+            "departure": "Xianyang (XIY)",
+            "arrival": "Wattay (VTE)",
+            "class": "Business",
+            "price": 6581193,
+            "duration": "2h 15m",
+            "scheduled": "2023-04-17T05:40:00+00:00",
+            "estimated": "2023-04-17T07:55:00+00:00",
+            "date": "2023-04-17",
+            "created_at": "2023-04-16T15:28:52.000000Z",
+            "updated_at": "2023-04-16T15:28:52.000000Z"
+        },
+        {
+            "id": 6,
+            "airline": "Sichuan Airlines",
+            "departure": "Xianyang (XIY)",
+            "arrival": "Wattay (VTE)",
+            "class": "First Class",
+            "price": 8199854,
+            "duration": "2h 15m",
+            "scheduled": "2023-04-17T05:40:00+00:00",
+            "estimated": "2023-04-17T07:55:00+00:00",
+            "date": "2023-04-17",
+            "created_at": "2023-04-16T15:28:52.000000Z",
+            "updated_at": "2023-04-16T15:28:52.000000Z"
+        }
+    ]
+}
+```
+<br><br><br>
+
+```
+ http://flight-api.test/api/flights/50
+```
+```json
+{
+    "status": 200,
+    "data": {
+        "id": 50,
+        "airline": "Air New Zealand",
+        "departure": "Sydney Kingsford Smith Airport (SYD)",
+        "arrival": "Springhill (OAG)",
+        "class": "Premium Economy",
+        "price": 3009964,
+        "duration": "0h 55m",
+        "scheduled": "2023-04-17T07:25:00+00:00",
+        "estimated": "2023-04-17T08:20:00+00:00",
+        "date": "2023-04-17",
+        "created_at": "2023-04-16T15:28:52.000000Z",
+        "updated_at": "2023-04-16T15:28:52.000000Z"
+    }
+}
+```
+<br><br><br>
+
+```
+ http://flight-api.test/api/flights?limit=5&airline&departure&class
+```
+```json
+{
+    "status": 200,
+    "data": [
+        {
+            "airline": "Batik Air",
+            "departure": "Polonia (KNO)",
+            "class": "Economy"
+        },
+        {
+            "airline": "Batik Air",
+            "departure": "Polonia (KNO)",
+            "class": "Business"
+        },
+        {
+            "airline": "Shandong Airlines",
+            "departure": "Xianyang (XIY)",
+            "class": "Business"
+        },
+        {
+            "airline": "Shandong Airlines",
+            "departure": "Xianyang (XIY)",
+            "class": "Business"
+        },
+        {
+            "airline": "Sichuan Airlines",
+            "departure": "Xianyang (XIY)",
+            "class": "Business"
+        }
+    ]
+}
+```
+<br><br><br>
+
+```
+ http://flight-api.test/api/flights?keberangkatan
+```
+```json
+{
+    "status": 400,
+    "error": {
+        "code": "request_error",
+        "message": "Request error. Pastikan parameter yang anda masukan sudah sesuai."
+    }
+}
+```
+<br><br><br>
+
+```
+ http://flight-api.test/api/flights?search=qwerty
+```
+```json
+{
+    "status": 500,
+    "error": {
+        "code": "empty_data",
+        "message": "Data tidak ditemukan."
+    }
+}
 ```
