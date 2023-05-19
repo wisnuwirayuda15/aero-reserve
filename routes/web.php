@@ -17,14 +17,14 @@ use Carbon\Carbon;
 */
 
 Route::get('/', function () {
-    return response()->json([
-        'status' => 'forbidden',
-        'message' => 'Tambahkan endpoint /api/flights untuk mengambil data api.'
-    ], 200);
+    // return response()->json([
+    //     'status' => 'forbidden',
+    //     'message' => 'Tambahkan endpoint /api/flights untuk mengambil data api.'
+    // ], 200);
 
     $queryString = http_build_query([
-        'access_key' => '3f78a4a74f48eebf0244529b2ec2a9a5',
-        'limit' => 100,
+        'access_key' => env('API_KEY'),
+        'limit' => 50,
         'offset' => null
     ]);
     $ch = curl_init(sprintf('%s?%s', 'http://api.aviationstack.com/v1/flights', $queryString));
@@ -38,28 +38,34 @@ Route::get('/', function () {
         );
     };
 
-    // foreach ($api_result->data as $data) {
-    //     $class = array('Economy', 'Business', 'First Class', 'Premium Economy');
-    //     $scheduled = Carbon::parse($data->departure->scheduled);
-    //     $estimated = Carbon::parse($data->arrival->estimated);
-    //     $duration = $scheduled->diff($estimated);
-
-    //     $flight = new Flight;
-    //     $flight->airline = $data->airline->name;
-    //     // $flight->flight_code = $data->flight->iata;
-    //     $flight->departure = $data->departure->airport . ' (' . $data->departure->iata . ')';
-    //     $flight->arrival = $data->arrival->airport . ' (' . $data->arrival->iata . ')';
-    //     $flight->class = array_rand(array_flip($class));
-    //     $flight->price = round(rand(1000000, 10000000));
-    //     $flight->duration = $duration->format('%hh %im');
-    //     $flight->scheduled = $data->departure->scheduled;
-    //     $flight->estimated = $data->arrival->estimated;
-    //     // $flight->status = $data->flight_status;
-    //     $flight->date = $data->flight_date;
-    //     $flight->save();
-    // };
-    
     return view('index', [
         'api_result' => $api_result->data
     ]);
+});
+
+Route::get('/are', function () {
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://jadwalkeretaapi-indonesian-train-schedule-jadwal-kereta-v1.p.rapidapi.com/api?apikey=101487229685974604868&regstasiun=1&tanggal=20171106&dewasa=1&infant=0",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: jadwalkeretaapi-indonesian-train-schedule-jadwal-kereta-v1.p.rapidapi.com",
+            "X-RapidAPI-Key: 7bae30b686msh70644f18cb71106p193a45jsn38a5a9793424"
+        ],
+    ]);
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        return response()->json(
+            $response
+        );
+    }
 });
