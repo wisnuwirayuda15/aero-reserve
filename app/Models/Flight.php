@@ -14,7 +14,7 @@ class Flight extends Model
         'id'
     ];
 
-    public function fetchData(string $access_key, int $limit = 50, int|null $offset = null)
+    public static function fetchData(string $access_key, int $limit = 50, int|null $offset = null)
     {
         $queryString = http_build_query([
             'access_key' => $access_key,

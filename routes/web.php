@@ -25,9 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/view', function () {
-    $flight = new Flight;
-
-    $response = $flight->fetchData(env('API_KEY_1'));
+    $response = Flight::fetchData(env('API_KEY_1'));
 
     return view('index', [
         'api_result' => $response['data']

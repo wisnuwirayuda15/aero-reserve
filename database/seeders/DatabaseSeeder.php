@@ -21,9 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $flight = new Flight;
-
-        $response = $flight->fetchData(env('API_KEY_2'));
+        $response = Flight::fetchData(env('API_KEY_2'));
 
         foreach ($response['data'] as $data) {
             $class = array('Economy', 'Business', 'First Class', 'Premium Economy');
