@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
             $table->string('airline')->nullable();
-            // $table->string('flight_code')->nullable();
             $table->string('departure')->nullable();
             $table->string('arrival')->nullable();
             $table->string('class')->nullable();
@@ -22,7 +21,6 @@ return new class extends Migration
             $table->string('duration')->nullable();
             $table->string('scheduled')->nullable();
             $table->string('estimated')->nullable();
-            // $table->string('status')->nullable();
             $table->string('date')->nullable();
             $table->timestamps();
         });

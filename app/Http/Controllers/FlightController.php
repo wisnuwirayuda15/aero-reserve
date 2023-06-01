@@ -11,74 +11,65 @@ class FlightController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         try {
-            // if (!isset($request->key) || $request->key != 'kelompok3') {
-            //     return response()->json([
-            //         'error' => [
-            //             'code' => 'invalid_key',
-            //             'message' => 'Invalid API key.'
-            //         ]
-            //     ], 401);
-            // } else {
-            $queryString = $request->query();
-            $limit = isset($queryString['limit']) ? $queryString['limit'] : '';
-            unset($queryString['key']);
-            unset($queryString['limit']);
-            if (isset($request->search)) {
-                $flights = Flight::limit($limit)
-                    ->where('airline', 'LIKE', "%$request->search%")
-                    // ->orwhere('id', 'LIKE', "%$request->search%")
-                    // ->orwhere('flight_code', 'LIKE', "%$request->search%")
-                    ->orwhere('departure', 'LIKE', "%$request->search%")
-                    ->orwhere('arrival', 'LIKE', "%$request->search%")
-                    ->orwhere('class', 'LIKE', "%$request->search%")
-                    ->orwhere('price', 'LIKE', "%$request->search%")
-                    ->orwhere('duration', 'LIKE', "%$request->search%")
-                    ->orwhere('scheduled', 'LIKE', "%$request->search%")
-                    ->orwhere('estimated', 'LIKE', "%$request->search%")
-                    // ->orwhere('status', 'LIKE', "%$request->search%")
-                    ->orwhere('date', 'LIKE', "%$request->search%")
-                    ->get();
-                if ($flights->isEmpty()) {
-                    return response()->json([
-                        'status' => 500,
-                        'error' => [
-                            'code' => 'empty_data',
-                            'message' => 'Data tidak ditemukan.'
-                        ]
-                    ], 500);
-                }
-            } else if ($queryString) {
-                if (array_key_exists('search', $queryString)) {
-                    return response()->json([
-                        'status' => 400,
-                        'error' => [
-                            'code' => 'search_null',
-                            'message' => 'Value untuk parameter [search] diperlukan.'
-                        ]
-                    ], 400);
-                }
-                $flights = Flight::limit($limit)->select(array_keys($queryString))->get();
-            } else {
-                $flights = Flight::limit($limit)->get();
-            };
+            $keyCheck = Flight::keyCheck(request('api_key'));
+
+            if ($keyCheck) {
+                return response()->json($keyCheck, 401);
+            }
+
+            $flights = Flight::id(request('id'))
+                ->filter(request('select_only'))
+                ->class(request('class'))
+                ->search(request('search'))
+                ->sort(request('sort_by'))
+                ->price(request('price'))
+                ->limits(request('limit'))
+                ->withPaginate(request('paginate'));
+
+            if ($flights->isEmpty()) {
+                return response()->json([
+                    'status' => 404,
+                    'error' => [
+                        'code' => '404_not_found',
+                        'message' => 'Data tidak ditemukan.'
+                    ]
+                ], 404);
+            }
+
             return response()->json([
                 'status' => 200,
+                'properties' => [
+                    'count' => $flights->count(),
+                    'total' => Flight::count(),
+                ],
                 'data' => $flights
             ], 200);
-            // }
         } catch (Exception $e) {
-            // return $e;
+            return $e;
+
             return response()->json([
                 'status' => 400,
                 'error' => [
                     'code' => 'request_error',
-                    'message' => 'Request error. Pastikan parameter yang anda masukan sudah sesuai.'
+                    'message' => 'Request error. Pastikan parameter dan value yang anda masukan sudah sesuai.'
                 ]
             ], 400);
         }
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function view()
+    {
+        $response = Flight::fetchData(env('API_KEY_1'));
+
+        return view('index', [
+            'api_result' => $response['data']
+        ]);
     }
 
     /**
@@ -102,11 +93,7 @@ class FlightController extends Controller
      */
     public function show(Flight $flight)
     {
-        $flights = Flight::find($flight)->first();
-        return response()->json([
-            'status' => 200,
-            'data' => $flights
-        ], 200);
+        //
     }
 
     /**

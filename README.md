@@ -20,42 +20,50 @@ Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi
 <br>
 
 # API Endpoints
+
 Anda bisa menggunakan endpoint `api/flights` untuk mendapatkan data-data ticket penerbangan yang kami sediakan. Anda juga bisa menggunakan paramater opsional yang ada untuk mendapatkan data yang lebih spesifik.
 
 <br>
 
-## Contoh API Request: 
+## Contoh API Request:
+
 ```
- https://flight-restful-api.com/api/flights
+ [GET] https://flight-restful-api.com/api/flights
 ```
+
 Mendapatkan data dengan **{id}** yang spesifik:
+
 ```
- https://flight-restful-api.com/api/flights/{id}
+ [GET] https://flight-restful-api.com/api/flights/{id}
 ```
+
 <br>
 
 ## Optional HTTP GET Request Parameters:
+
 **Note:** Tidak dapat digunakan bersamaan dengan penggunaan endpoint **{id}**
-| Object      | Description                                                                                                                                 |
+| Object | Description |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `limit`     | Untuk membatasi jumlah data yang diterima. Contoh: `limit=10`                                                                               |
-| `search`    | Untuk menampilkan data yang lebih spesifik, bisa digunakan untuk mencari data di semua kolom (kecuali ***id***). Contoh: `search=Batik Air` |
-| `airline`   | Untuk menampilkan hanya data pada kolom `airline` saja. Parameter ini tidak memerlukan value.                                               |
-| `departure` | Untuk menampilkan hanya data pada kolom `departure` saja. Parameter ini tidak memerlukan value.                                             |
-| `arrival`   | Untuk menampilkan hanya data pada kolom `arrival` saja. Parameter ini tidak memerlukan value.                                               |
-| `class`     | Untuk menampilkan hanya data pada kolom `class` saja. Parameter ini tidak memerlukan value.                                                 |
-| `price`     | Untuk menampilkan hanya data pada kolom `price` saja. Parameter ini tidak memerlukan value.                                                 |
-| `duration`  | Untuk menampilkan hanya data pada kolom `duration` saja. Parameter ini tidak memerlukan value.                                              |
-| `scheduled` | Untuk menampilkan hanya data pada kolom `scheduled` saja. Parameter ini tidak memerlukan value.                                             |
-| `estimated` | Untuk menampilkan hanya data pada kolom `estimated` saja. Parameter ini tidak memerlukan value.                                             |
-| `date`      | Untuk menampilkan hanya data pada kolom `date` saja. Parameter ini tidak memerlukan value.                                                  |
+| `limit` | Untuk membatasi jumlah data yang diterima. Contoh: `limit=10` |
+| `search` | Untuk menampilkan data yang lebih spesifik, bisa digunakan untuk mencari data di semua kolom (kecuali **_id_**). Contoh: `search=Batik Air` |
+| `airline` | Untuk menampilkan hanya data pada kolom `airline` saja. Parameter ini tidak memerlukan value. |
+| `departure` | Untuk menampilkan hanya data pada kolom `departure` saja. Parameter ini tidak memerlukan value. |
+| `arrival` | Untuk menampilkan hanya data pada kolom `arrival` saja. Parameter ini tidak memerlukan value. |
+| `class` | Untuk menampilkan hanya data pada kolom `class` saja. Parameter ini tidak memerlukan value. |
+| `price` | Untuk menampilkan hanya data pada kolom `price` saja. Parameter ini tidak memerlukan value. |
+| `duration` | Untuk menampilkan hanya data pada kolom `duration` saja. Parameter ini tidak memerlukan value. |
+| `scheduled` | Untuk menampilkan hanya data pada kolom `scheduled` saja. Parameter ini tidak memerlukan value. |
+| `estimated` | Untuk menampilkan hanya data pada kolom `estimated` saja. Parameter ini tidak memerlukan value. |
+| `date` | Untuk menampilkan hanya data pada kolom `date` saja. Parameter ini tidak memerlukan value. |
 
 <br>
 
 ## Contoh API Response:
+
 ```
- https://flight-restful-api.com/api/flights?limit=2
+ [GET] https://flight-restful-api.com/api/flights?limit=2
 ```
+
 ```json
 {
     "status": 200,
@@ -91,11 +99,13 @@ Mendapatkan data dengan **{id}** yang spesifik:
     ]
 }
 ```
+
 <br><br><br>
 
 ```
- http://flight-restful-api.com/api/flights?search=Xianyang
+[GET] http://flight-restful-api.com/api/flights?search=Xianyang
 ```
+
 ```json
 {
     "status": 200,
@@ -159,11 +169,13 @@ Mendapatkan data dengan **{id}** yang spesifik:
     ]
 }
 ```
+
 <br><br><br>
 
 ```
- http://flight-restful-api.com/api/flights/50
+[GET] http://flight-restful-api.com/api/flights/50
 ```
+
 ```json
 {
     "status": 200,
@@ -183,11 +195,13 @@ Mendapatkan data dengan **{id}** yang spesifik:
     }
 }
 ```
+
 <br><br><br>
 
 ```
- http://flight-restful-api.com/api/flights?limit=5&airline&departure&class
+[GET] http://flight-restful-api.com/api/flights?limit=5&airline&departure&class
 ```
+
 ```json
 {
     "status": 200,
@@ -220,11 +234,13 @@ Mendapatkan data dengan **{id}** yang spesifik:
     ]
 }
 ```
+
 <br><br><br>
 
 ```
- http://flight-restful-api.com/api/flights?keberangkatan
+[GET] http://flight-restful-api.com/api/flights?keberangkatan
 ```
+
 ```json
 {
     "status": 400,
@@ -234,11 +250,13 @@ Mendapatkan data dengan **{id}** yang spesifik:
     }
 }
 ```
+
 <br><br><br>
 
 ```
- http://flight-restful-api.com/api/flights?search=qwerty
+[GET] http://flight-restful-api.com/api/flights?search=qwerty
 ```
+
 ```json
 {
     "status": 500,

@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Flight;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FlightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,9 @@ Route::get('/', function () {
         'status' => 403,
         'error' => [
             'code' => 'forbidden',
-            'message' => 'Tambahkan endpoint /api/flights untuk mengambil data api.'
+            'message' => 'Lihat dokumentasi [https://github.com/wisnuwirayuda15/flight-restful-api] untuk menggunakan layanan kami.'
         ]
     ], 403);
 });
 
-Route::get('/view', function () {
-    $response = Flight::fetchData(env('API_KEY_1'));
-
-    return view('index', [
-        'api_result' => $response['data']
-    ]);
-});
+Route::get('view', [FlightController::class, 'view'])->name('flights.view');

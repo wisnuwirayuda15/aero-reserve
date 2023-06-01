@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use App\Models\Flight;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,26 +22,34 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $response = Flight::fetchData(env('API_KEY_2'));
+        $response = Flight::fetchData(env('API_KEY_1'));
 
         foreach ($response['data'] as $data) {
-            $class = array('Economy', 'Business', 'First Class', 'Premium Economy');
-            $scheduled = Carbon::parse($data['departure']['scheduled']);
-            $estimated = Carbon::parse($data['arrival']['estimated']);
-            $duration = $scheduled->diff($estimated);
-            $flight = new Flight;
-            $flight->airline = $data['airline']['name'];
-            // $flight->flight_code = $data['flight']['iata'];
-            $flight->departure = $data['departure']['airport'] . ' (' . $data['departure']['iata'] . ')';
-            $flight->arrival = $data['arrival']['airport'] . ' (' . $data['arrival']['iata'] . ')';
-            $flight->class = array_rand(array_flip($class));
-            $flight->price = round(rand(1000000, 10000000));
-            $flight->duration = $duration->format('%hh %im');
-            $flight->scheduled = $data['departure']['scheduled'];
-            $flight->estimated = $data['arrival']['estimated'];
-            // $flight->status = $data['flight_status'];
-            $flight->date = $data['flight_date'];
-            $flight->save();
+            $airline = $data['airline']['name'] . ' (' . $data['flight']['iata'] . ')';
+            $departure = $data['departure']['airport'] . ' (' . $data['departure']['iata'] . ')';
+            $arrival = $data['arrival']['airport'] . ' (' . $data['arrival']['iata'] . ')';
+            $class = array_rand(array_flip(['Economy', 'Business', 'First Class', 'Premium Economy']));
+            $price = floor(rand(1000000, 10000000) / 1000) * 1000;
+            $duration = Carbon::parse($data['departure']['scheduled'])->diff(Carbon::parse($data['arrival']['estimated']))->format('%hh %im');
+            $scheduled = $data['departure']['scheduled'];
+            $estimated = $data['arrival']['estimated'];
+            $date = $data['flight_date'];
+
+            DB::table('flights')->insert([
+                [
+                    'airline' => $airline,
+                    'departure' => $departure,
+                    'arrival' => $arrival,
+                    'class' => $class,
+                    'price' => $price,
+                    'duration' => $duration,
+                    'scheduled' => $scheduled,
+                    'estimated' => $estimated,
+                    'date' => $date,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
+            ]);
         }
     }
 }
