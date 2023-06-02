@@ -1,7 +1,5 @@
 <h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</h1>
 
-<br>
-
 # Kelompok 3 - SI-44-06
 
 Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi Aplikasi Enterprise
