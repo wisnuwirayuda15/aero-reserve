@@ -422,10 +422,10 @@ Endpoint `/api/flights` digunakan untuk mendapatkan data-data tiket penerbangan 
 
 **_Query:_**
 
-| Key         | Value                                                                                                                               | Description |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| api_key     | `String`                                                                                                                            | API Key     |
-| select_only | `id`, `airline`, `departure`, `arrival`, `class`, `price`, `duration`, `scheduled`, `estimated`, `date`, `created_at`, `updated_at` | Nama kolom  |
+| Key         | Value                                                                                                                                                                                                 | Description |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| api_key     | `String`                                                                                                                                                                                              | API Key     |
+| select_only | `id` and/or `airline` and/or `departure` and/or `arrival` and/or `class` and/or `price` and/or `duration` and/or `scheduled` and/or `estimated` and/or `date` and/or `created_at` and/or `updated_at` | Nama kolom  |
 
 #### IV. Example Response: select_only
 
@@ -513,10 +513,10 @@ Endpoint `/api/flights` digunakan untuk mendapatkan data-data tiket penerbangan 
 
 **_Query:_**
 
-| Key     | Value                                                   | Description       |
-| ------- | ------------------------------------------------------- | ----------------- |
-| api_key | `String`                                                | API Key           |
-| class   | `Economy`, `Business`, `First Class`, `Premium Economy` | Kelas penerbangan |
+| Key     | Value                                                         | Description       |
+| ------- | ------------------------------------------------------------- | ----------------- |
+| api_key | `String`                                                      | API Key           |
+| class   | `Economy` or `Business` or `First Class` or `Premium Economy` | Kelas penerbangan |
 
 #### V. Example Response: class
 
