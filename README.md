@@ -1,4 +1,4 @@
-<h1 style="text-align: center; font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</h1>
+<center style="text-align: center; font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</center>
 
 <br>
 
