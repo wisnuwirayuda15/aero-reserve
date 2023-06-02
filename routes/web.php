@@ -15,12 +15,23 @@ use App\Http\Controllers\FlightController;
 |
 */
 
+Route::fallback(function () {
+    return response()->json([
+        'status' => 404,
+        'error' => [
+            'code' => 'endpoint_not_found',
+            'message' => 'Endpoint tidak tersedia. Pastikan anda memberikan endpoint yang kami sediakan.'
+        ]
+    ], 404);
+});
+
+
 Route::get('/', function () {
     return response()->json([
         'status' => 403,
         'error' => [
             'code' => 'forbidden',
-            'message' => 'Lihat dokumentasi [https://github.com/wisnuwirayuda15/flight-restful-api] untuk menggunakan layanan kami.'
+            'message' => 'Lihat dokumentasi https://github.com/wisnuwirayuda15/flight-restful-api untuk menggunakan layanan kami.'
         ]
     ], 403);
 });
