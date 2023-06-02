@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('api_key');
             $table->bigInteger('usage')->default(0);
+            $table->bigInteger('reset')->default(0);
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class FlightController extends Controller
                 ->search(request('search'))
                 ->sort(request('sort_by'))
                 ->price(request('price'))
-                ->limits(request('limit'))
+                ->limits(request('limit') ?? 10)
                 ->withPaginate(request('paginate'));
 
             if ($flights->isEmpty()) {

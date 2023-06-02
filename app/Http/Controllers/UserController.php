@@ -149,6 +149,7 @@ class UserController extends Controller
             $user->key->update([
                 'api_key' => Str::random(32),
                 'usage' => 0,
+                'reset' => $user->key->reset += 1,
             ]);
 
             return response()->json([
@@ -156,7 +157,7 @@ class UserController extends Controller
                 'message' => 'API key anda berhasil direset.',
                 'data' => [
                     'new_api_key' => $user->key->api_key,
-                    'times_reset' => $user->key->api_key,
+                    'times_reset' => $user->key->reset,
                 ]
             ], 200);
         };

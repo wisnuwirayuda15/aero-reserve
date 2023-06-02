@@ -73,7 +73,7 @@ class Flight extends Model
     public function scopeSort($query, $sort)
     {
         if ($sort) {
-            $sorts = explode('|', $sort);
+            $sorts = explode('.', $sort);
             return $query->orderBy($sorts[0], $sorts[1]);
         }
     }
@@ -111,7 +111,7 @@ class Flight extends Model
     public function scopePrice($query, $price)
     {
         if ($price) {
-            $prices = explode('|', $price);
+            $prices = explode('.', $price);
             return $query->where('price', $prices[0], $prices[1]);
         }
     }
@@ -123,7 +123,6 @@ class Flight extends Model
                 ->orwhere('departure', 'LIKE', "%$search%")
                 ->orwhere('arrival', 'LIKE', "%$search%")
                 ->orwhere('class', 'LIKE', "%$search%")
-                // ->orwhere('price', 'LIKE', "%$search%")
                 ->orwhere('duration', 'LIKE', "%$search%")
                 ->orwhere('scheduled', 'LIKE', "%$search%")
                 ->orwhere('estimated', 'LIKE', "%$search%")

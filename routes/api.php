@@ -26,4 +26,4 @@ Route::post('user/register', [UserController::class, 'register'])->name('user.re
 
 Route::post('user/login', [UserController::class, 'login'])->name('user.login');
 
-Route::post('key/reset', [UserController::class, 'keyReset'])->name('key.reset');
+Route::patch('key/reset', [UserController::class, 'keyReset'])->name('key.reset');
