@@ -1,4 +1,4 @@
-<center style="text-align: center; font-weight: bold; font-size: 50px">✈️ Flight-API Documetation 📄</center>
+<h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Flight-API Documetation 📄</h1>
 
 Dokumentasi ini menjelaskan bagaimana cara mengakses data ticket penerbangan pada layanan kami yaitu ✈️ **Flight-API** 🌍. Kami menyediakan berbagai macam data ticket penerbangan yang bisa anda gunakan untuk kebutuhan atau aplikasi anda.
 
