@@ -9,7 +9,7 @@ Dokumentasi ini menjelaskan bagaimana cara mengakses data ticket penerbangan pad
 
 ### API Key
 
-Untuk menggunakan layanan kami, anda membutuhkan API Key. API Key bisa anda dapatkan dengan mendaftarkan akun pada layanan kami. Klik disini untuk ke cara registrasi.
+Untuk menggunakan layanan kami, anda membutuhkan API Key. API Key bisa anda dapatkan dengan mendaftarkan akun pada layanan kami. Klik [disini](#1-register) untuk ke cara registrasi.
 
 Untuk menggunakan API Key, anda cukup memberikan parameter `api_key` dengan value sesuai API Key yang anda dapatkan setelah registrasi dan login pada semua endpoint yang valid dan dapat diakses.
 
@@ -126,7 +126,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### I. Example Response: Tanpa parameter opsional
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -303,7 +303,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### II. Example Response: id
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -354,7 +354,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### III. Example Response: search
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -475,7 +475,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### IV. Example Response: select_only
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -572,7 +572,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### V. Example Response: class
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -749,7 +749,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### VI. Example Response: sort_by
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -926,7 +926,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### VII. Example Response: price
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -1103,7 +1103,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### VIII. Example Response: limit
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -1210,7 +1210,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### IX. Example Response: paginate
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -1408,7 +1408,7 @@ URL: http://flight-api.test/api/flights
 
 
 #### X. Example Response: paginate with page
-```js
+```json
 {
     "status": 200,
     "properties": {
@@ -1629,7 +1629,7 @@ URL: http://flight-api.test/api/user/register
 
 
 #### I. Example Response: Registrasi berhasil
-```js
+```json
 {
     "status": 201,
     "message": "Registrasi berhasil. Silahkan login untuk mengakses API key."
@@ -1662,7 +1662,7 @@ URL: http://flight-api.test/api/user/register
 
 
 #### II. Example Response: Registrasi gagal
-```js
+```json
 {
     "status": 422,
     "message": "Validasi gagal.",
@@ -1721,7 +1721,7 @@ URL: http://flight-api.test/api/user/login
 
 
 #### I. Example Response: Login berhasil
-```js
+```json
 {
     "status": 200,
     "message": "Login berhasil.",
@@ -1760,7 +1760,7 @@ URL: http://flight-api.test/api/user/login
 
 
 #### II. Example Response: Login gagal
-```js
+```json
 {
     "status": 401,
     "error": {
@@ -1815,7 +1815,7 @@ URL: http://flight-api.test/api/key/reset
 
 
 #### I. Example Response: Reset key berhasil
-```js
+```json
 {
     "status": 200,
     "message": "API key anda berhasil direset.",
@@ -1852,7 +1852,7 @@ URL: http://flight-api.test/api/key/reset
 
 
 #### II. Example Response: Reset key gagal
-```js
+```json
 {
     "error": {
         "code": "invalid_api_key",
