@@ -21,4 +21,4 @@ Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi
 
 # API Documentation
 
-Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 🌍](https://documenter.getpostman.com/view/26312613/2s93mBwz5u)
+Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 🌍](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)
