@@ -1,7 +1,6 @@
-#
+<h1 style="text-align: center; font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</h1>
 
-<p align="center"><img src="https://telkomuniversity.ac.id/wp-content/uploads/2019/03/Logo-Telkom-University-png-3430x1174.png" width="370" alt="Logo Telkom University"></p>
-<p align="center"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="500" alt="Laravel Logo"></p>
+<br>
 
 # Kelompok 3 - SI-44-06
 
@@ -21,4 +20,4 @@ Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi
 
 # API Documentation
 
-Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 🌍](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)
+Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 📄](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)

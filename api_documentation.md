@@ -1,9 +1,6 @@
+<h1 style="text-align: center; font-weight: bold; font-size: 50px">✈️ Flight-API Documetation 📄</h1>
 
-# ✈️ Flight-API Documetation 🌍
-
-[GitHub repository](https://github.com/wisnuwirayuda15/flight-restful-api)
-
-Dokumentasi ini menjelaskan bagaimana cara mengakses data ticket penerbangan pada layanan kami yaitu **Flight-API**. Kami menyediakan berbagai macam data ticket penerbangan yang bisa anda gunakan untuk kebutuhan atau aplikasi anda.
+Dokumentasi ini menjelaskan bagaimana cara mengakses data ticket penerbangan pada layanan kami yaitu ✈️ **Flight-API** 🌍. Kami menyediakan berbagai macam data ticket penerbangan yang bisa anda gunakan untuk kebutuhan atau aplikasi anda.
 
 # Getting Started
 
@@ -13,24 +10,16 @@ Untuk menggunakan layanan kami, anda membutuhkan API Key. API Key bisa anda dapa
 
 Untuk menggunakan API Key, anda cukup memberikan parameter `api_key` dengan value sesuai API Key yang anda dapatkan setelah registrasi dan login pada semua endpoint yang valid dan dapat diakses.
 
-<!--- If we have only one group/collection, then no need for the "ungrouped" heading -->
+### Base URL
 
+Anda bisa menggunakan URL `http://flight-api.test` untuk semua endpoint yang tersedia.
 
-## Variables
+## Navigation
 
-| Key | Value | Type |
-| --- | ------|-------------|
-| base_url | http://flight-api.test | string |
-
-
-
-## Endpoints
-
-- [✈️ Flight-API Documetation 🌍](#️-flight-api-documetation-)
 - [Getting Started](#getting-started)
     - [API Key](#api-key)
-  - [Variables](#variables)
-  - [Endpoints](#endpoints)
+    - [Base URL](#base-url)
+  - [Navigation](#navigation)
   - [Flight Tickets](#flight-tickets)
     - [1. Flight Tickets](#1-flight-tickets)
       - [I. Example Request: Tanpa parameter opsional](#i-example-request-tanpa-parameter-opsional)
@@ -70,62 +59,49 @@ Untuk menggunakan API Key, anda cukup memberikan parameter `api_key` dengan valu
       - [II. Example Request: Reset key gagal](#ii-example-request-reset-key-gagal)
       - [II. Example Response: Reset key gagal](#ii-example-response-reset-key-gagal)
 
---------
-
-
+---
 
 ## Flight Tickets
 
-
-
 ### 1. Flight Tickets
-
 
 Endpoint `/api/flights` digunakan untuk mendapatkan data-data tiket penerbangan yang tersedia. Gunakan parameter yang tersedia untuk memilih data yang lebih spesifik. Berikut parameter yang tersedia:
 
-| **Parameter** | **Description** | **Example** |
-| --- | --- | --- |
-| `api_key` | **\[Required\]** API Key bisa anda dapatkan setelah melakukan registrasi | `api_key={{$randomBitcoin}}` |
-| `id` | **\[Optional\]** Mencari data berdasarkan id. Disarankan untuk tidak menggunakan parameter opsional lain jika anda menggunakan parameter ini. | `id=5` |
-| `search` | **\[Optional\]** Mencari data sesuai kata kunci yang diinginkan | `search=China` |
-| `select_only` | **\[Optional\]** Menampilkan data hanya pada kolom tertentu. Kolom yang tersedia: `id`, `airline`, `departure`, `arrival`, `class`, `price`, `duration`, `scheduled`, `estimated`, `date`, `created_at`, `updated_at`. Gunakan tanda koma `(,)` jika anda ingin memilih lebih dari satu kolom. | `select_only=airline select_only=airline,departure,arrival` |
-| `class` | **\[Optional\]** Mencari data berdasarkan class. Class yang tersedia: `Economy`, `Business`, `First Class`, `Premium Economy` | `class=Economy` |
-| `sort_by` | **\[Optional\]** Mengurutkan data berdasarkan kolom tertentu. Anda harus memberikan dua value yang harus dipisahkan dengan tanda titik `(.)`.Value pertama berupa nama kolom dan value kedua berupa jenis urutannya, yaitu `asc` atau `desc.` | `sort_by=airline.asc`  <br>  <br>`sort_by=price.desc` |
-| `price` | **\[Optional\]** Mencari data berdasarkan harga tiket. Anda harus memberikan dua value yang harus dipisahkan dengan tanda titik `(.)`.Value pertama berupa symbol lebih besar `(>)` atau lebih kecil `(<)`dan value kedua berupa harga dalam bentuk integer. | `price=>.1000000`  <br>  <br>`price=<.5000000` |
-| `limit` | **\[Optional\]** Membatasi data didapatkan sesuai keinginan. Value defaultnya adalah `10`. Jika anda ingin mengambil semua data yang ada, anda hanya perlu memberikan value `0` untuk parameter ini. Tidak disarankan untuk mengambil semua data tanpa limit tertentu untuk menghindari penggunaan bandwidth yang terlalu besar. | `limit=50` |
-| `paginate` | **\[Optional\]** Mendapatkan data dalam paginasi. Anda perlu memberikan parameter tambahan `page` untuk mengakses halaman lain dari paginasi. | `paginate=10&page=2` |
+| **Parameter** | **Description**                                                                                                                                                                                                                                                                                                                       | **Value**              | **Example**                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------- |
+| `api_key`     | **\[Required\]** API Key bisa anda dapatkan setelah melakukan registrasi                                                                                                                                                                                                                                                              | `String`               | `api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs`                           |
+| `id`          | **\[Optional\]** Mencari data berdasarkan id. Disarankan untuk tidak menggunakan parameter opsional lain jika anda menggunakan parameter ini.                                                                                                                                                                                         | `Integer`              | `id=5`                                                               |
+| `search`      | **\[Optional\]** Mencari data sesuai kata kunci yang diinginkan                                                                                                                                                                                                                                                                       | `String`               | `search=China`                                                       |
+| `select_only` | **\[Optional\]** Menampilkan data hanya pada kolom tertentu. Kolom yang tersedia: `id`, `airline`, `departure`, `arrival`, `class`, `price`, `duration`, `scheduled`, `estimated`, `date`, `created_at`, `updated_at`. Gunakan tanda koma `(,)` jika anda ingin memilih lebih dari satu kolom.                                        | `String`               | `select_only=airline`<br><br>`select_only=airline,departure,arrival` |
+| `class`       | **\[Optional\]** Mencari data berdasarkan class. Class yang tersedia: `Economy`, `Business`, `First Class`, `Premium Economy`                                                                                                                                                                                                         | `String`               | `class=Economy`                                                      |
+| `sort_by`     | **\[Optional\]** Mengurutkan data berdasarkan kolom tertentu. Anda harus memberikan dua value yang harus dipisahkan dengan tanda titik `(.)`.Value pertama berupa nama kolom dan value kedua berupa jenis urutannya, yaitu `asc` atau `desc`.                                                                                         | `String` dan `String`  | `sort_by=airline.asc`<br><br>`sort_by=price.desc`                    |
+| `price`       | **\[Optional\]** Mencari data berdasarkan harga tiket. Anda harus memberikan dua value yang harus dipisahkan dengan tanda titik `(.)`.Value pertama berupa symbol lebih besar `(>)` atau lebih kecil `(<)`dan value kedua berupa harga dalam bentuk integer.                                                                          | `String` dan `Integer` | `price=>.1000000`<br><br>`price=<.5000000`                           |
+| `limit`       | **\[Optional\]** Membatasi data yang didapatkan sesuai keinginan. Value defaultnya adalah `10`. Jika anda ingin mengambil semua data yang ada, anda hanya perlu memberikan value `0` untuk parameter ini. Tidak disarankan untuk mengambil semua data tanpa limit tertentu untuk menghindari penggunaan bandwidth yang terlalu besar. | `Integer`              | `limit=50`                                                           |
+| `paginate`    | **\[Optional\]** Mendapatkan data dalam paginasi. Value menunjukkan seberapa banyak data dalam satu halaman.                                                                                                                                                                                                                          | `Integer`              | `paginate=10`                                                        |
+| `page`        | **\[Optional\]** Dapat anda gunakan ketika anda menggunakan parameter `paginate`. Value menunjukkan nomor halaman pada paginasi.                                                                                                                                                                                                      | `Integer`              | `page=2`                                                             |
 
+**_Endpoint:_**
 
-***Endpoint:***
-
-```bash
-Method: GET
-Type: 
-URL: http://flight-api.test/api/flights
+```
+[GET] {base_url}/api/flights
 ```
 
-
-
-***More example Requests/Responses:***
-
+**_More example Requests/Responses:_**
 
 #### I. Example Request: Tanpa parameter opsional
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value    | Description |
+| ------- | -------- | ----------- |
+| api_key | `String` | API Key     |
 
 #### I. Example Response: Tanpa parameter opsional
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs
+```
+
 ```json
 {
     "status": 200,
@@ -278,31 +254,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### II. Example Request: id
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| id | 5 |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value     | Description |
+| ------- | --------- | ----------- |
+| api_key | `String`  | API Key     |
+| id      | `Integer` | ID tiket    |
 
 #### II. Example Response: id
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&id=5
+```
+
 ```json
 {
     "status": 200,
@@ -329,31 +299,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### III. Example Request: search
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| search | China |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value    | Description |
+| ------- | -------- | ----------- |
+| api_key | `String` | API Key     |
+| search  | `String` | Kata kunci  |
 
 #### III. Example Response: search
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&search=China
+```
+
 ```json
 {
     "status": 200,
@@ -450,31 +414,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### IV. Example Request: select_only
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| select_only | airline,departure,arrival,date |  |
-
-
-
-***Body: None***
-
-
+| Key         | Value                                                                                                                               | Description |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| api_key     | `String`                                                                                                                            | API Key     |
+| select_only | `id`, `airline`, `departure`, `arrival`, `class`, `price`, `duration`, `scheduled`, `estimated`, `date`, `created_at`, `updated_at` | Nama kolom  |
 
 #### IV. Example Response: select_only
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&select_only=airline,departure,arrival,date
+```
+
 ```json
 {
     "status": 200,
@@ -547,31 +505,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### V. Example Request: class
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| class | Economy |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value                                                   | Description       |
+| ------- | ------------------------------------------------------- | ----------------- |
+| api_key | `String`                                                | API Key           |
+| class   | `Economy`, `Business`, `First Class`, `Premium Economy` | Kelas penerbangan |
 
 #### V. Example Response: class
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&class=Economy
+```
+
 ```json
 {
     "status": 200,
@@ -724,31 +676,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### VI. Example Request: sort_by
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| sort_by | airline.desc |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value                          | Description |
+| ------- | ------------------------------ | ----------- |
+| api_key | `String`                       | API Key     |
+| sort_by | `Nama Kolom` . `asc` or `desc` | Urutan data |
 
 #### VI. Example Response: sort_by
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&sort_by=airline.desc
+```
+
 ```json
 {
     "status": 200,
@@ -901,31 +847,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### VII. Example Request: price
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| price | <.5000000 |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value                  | Description        |
+| ------- | ---------------------- | ------------------ |
+| api_key | `String`               | API Key            |
+| price   | `>` or `<` . `Integer` | Filter harga tiket |
 
 #### VII. Example Response: price
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&price=<.5000000
+```
+
 ```json
 {
     "status": 200,
@@ -1078,31 +1018,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### VIII. Example Request: limit
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| limit | 5 |  |
-
-
-
-***Body: None***
-
-
+| Key     | Value     | Description |
+| ------- | --------- | ----------- |
+| api_key | `String`  | API Key     |
+| limit   | `Integer` | Limit data  |
 
 #### VIII. Example Response: limit
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&limit=5
+```
+
 ```json
 {
     "status": 200,
@@ -1185,31 +1119,25 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### IX. Example Request: paginate
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| paginate | 5 |  |
-
-
-
-***Body: None***
-
-
+| Key      | Value     | Description                    |
+| -------- | --------- | ------------------------------ |
+| api_key  | `String`  | API Key                        |
+| paginate | `Integer` | Jumlah data dalam satu halaman |
 
 #### IX. Example Response: paginate
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&paginate=5
+```
+
 ```json
 {
     "status": 200,
@@ -1291,10 +1219,10 @@ URL: http://flight-api.test/api/flights
                 "updated_at": "2023-06-01T13:59:22.000000Z"
             }
         ],
-        "first_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
+        "first_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
         "from": 1,
         "last_page": 20,
-        "last_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
+        "last_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
         "links": [
             {
                 "url": null,
@@ -1302,52 +1230,52 @@ URL: http://flight-api.test/api/flights
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=3",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=5",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=6",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=6",
                 "label": "6",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=7",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=7",
                 "label": "7",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=8",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=8",
                 "label": "8",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=9",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=9",
                 "label": "9",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=10",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=10",
                 "label": "10",
                 "active": false
             },
@@ -1357,23 +1285,23 @@ URL: http://flight-api.test/api/flights
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=19",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=19",
                 "label": "19",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
                 "label": "20",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "next_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
-        "path": "http://flight-api.test/api/flights",
+        "next_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+        "path": "{base_url}/api/flights",
         "per_page": 5,
         "prev_page_url": null,
         "to": 5,
@@ -1382,32 +1310,28 @@ URL: http://flight-api.test/api/flights
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### X. Example Request: paginate with page
 
+**_Query:_**
 
+| Key      | Value     | Description                    |
+| -------- | --------- | ------------------------------ |
+| api_key  | `String`  | API Key                        |
+| paginate | `Integer` | Jumlah data dalam satu halaman |
+| page     | `Integer` | Nomor halaman paginasi         |
 
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs |  |
-| paginate | 5 |  |
-| page | 3 |  |
-
-
-
-***Body: None***
-
-
+**_Body: None_**
 
 #### X. Example Response: paginate with page
+
+```
+[GET] {base_url}/api/flights?api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs&paginate=5&page=3
+```
+
 ```json
 {
     "status": 200,
@@ -1489,63 +1413,63 @@ URL: http://flight-api.test/api/flights
                 "updated_at": "2023-06-01T13:59:22.000000Z"
             }
         ],
-        "first_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
+        "first_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
         "from": 11,
         "last_page": 20,
-        "last_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
+        "last_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
         "links": [
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
                 "label": "&laquo; Previous",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=1",
                 "label": "1",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=3",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=3",
                 "label": "3",
                 "active": true
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=5",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=6",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=6",
                 "label": "6",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=7",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=7",
                 "label": "7",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=8",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=8",
                 "label": "8",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=9",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=9",
                 "label": "9",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=10",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=10",
                 "label": "10",
                 "active": false
             },
@@ -1555,80 +1479,65 @@ URL: http://flight-api.test/api/flights
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=19",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=19",
                 "label": "19",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=20",
                 "label": "20",
                 "active": false
             },
             {
-                "url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
+                "url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "next_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
-        "path": "http://flight-api.test/api/flights",
+        "next_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=4",
+        "path": "{base_url}/api/flights",
         "per_page": 5,
-        "prev_page_url": "http://flight-api.test/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
+        "prev_page_url": "{base_url}/api/flights?api_key=Xm9Pn2EBhy0p7IU2lucSG1IsquFjxH6M&paginate=5&page=2",
         "to": 15,
         "total": 100
     }
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 ## User
-
-
 
 ### 1. Register
 
-
 Endpoint `/api/user/register` digunakan untuk mendaftarkan akun baru. Setelah mendaftar akun, anda bisa login dan mendapatkan API Key yang bisa digunakan untuk mendapatkan data-data tiket penerbangan pada layanan kami. Berikut contoh penggunaan parameternya:
 
+**_Endpoint:_**
 
-***Endpoint:***
-
-```bash
-Method: POST
-Type: 
-URL: http://flight-api.test/api/user/register
+```
+[POST] {base_url}/api/user/register
 ```
 
-
-
-***More example Requests/Responses:***
-
+**_More example Requests/Responses:_**
 
 #### I. Example Request: Registrasi berhasil
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| name | user | Username untuk pembuatan akun |
-| email | user@example.com | Email untuk pembuatan akun |
-| password | 12345678 | Password minimal 8 karakter |
-
-
-
-***Body: None***
-
-
+| Key      | Value    | Description                                       |
+| -------- | -------- | ------------------------------------------------- |
+| name     | `String` | Username untuk pembuatan akun                     |
+| email    | `String` | Email untuk pembuatan akun                        |
+| password | `String` | Password untuk pembuatan akun, minimal 8 karakter |
 
 #### I. Example Response: Registrasi berhasil
+
+```
+[POST] {base_url}/api/user/register?name=user&email=user@example.com&password=12345678
+```
+
 ```json
 {
     "status": 201,
@@ -1636,91 +1545,70 @@ URL: http://flight-api.test/api/user/register
 }
 ```
 
-
-***Status Code:*** 0
+**_Status Code:_** 0
 
 <br>
 
-
-
 #### II. Example Request: Registrasi gagal
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| name | user | Username untuk pembuatan akun |
-| email | user@example.com | Email untuk pembuatan akun |
-| password | 123 | Password minimal 8 karakter |
-
-
-
-***Body: None***
-
-
+| Key      | Value    | Description                                       |
+| -------- | -------- | ------------------------------------------------- |
+| name     | `String` | Username untuk pembuatan akun                     |
+| email    | `String` | Email untuk pembuatan akun                        |
+| password | `String` | Password untuk pembuatan akun, minimal 8 karakter |
 
 #### II. Example Response: Registrasi gagal
+
+```
+[POST] {base_url}/api/user/register?name=user&email=user@example.com&password=123
+```
+
 ```json
 {
     "status": 422,
     "message": "Validasi gagal.",
     "errors": {
-        "email": [
-            "The email has already been taken."
-        ],
-        "password": [
-            "The password field must be at least 8 characters."
-        ]
+        "email": ["The email has already been taken."],
+        "password": ["The password field must be at least 8 characters."]
     }
 }
 ```
 
-
-***Status Code:*** 422
+**_Status Code:_** 422
 
 <br>
 
-
-
 ### 2. Login
-
 
 Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan. Setelah login, anda akan mendapatkan API Key yang bisa digunakan untuk mendapatkan data-data tiket penerbangan pada layanan kami. Berikut contoh penggunaan parameternya:
 
+**_Endpoint:_**
 
-***Endpoint:***
-
-```bash
-Method: POST
-Type: 
-URL: http://flight-api.test/api/user/login
+```
+[POST] {base_url}/api/user/login
 ```
 
-
-
-***More example Requests/Responses:***
-
+**_More example Requests/Responses:_**
 
 #### I. Example Request: Login berhasil
 
+**_Query:_**
 
+| Key      | Value    | Description                                |
+| -------- | -------- | ------------------------------------------ |
+| email    | `String` | Email yang sudah didaftarkan sebelumnya    |
+| password | `String` | Password yang sudah didaftarkan sebelumnya |
 
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| email | user@example.com |  |
-| password | 12345678 |  |
-
-
-
-***Body: None***
-
-
+**_Body: None_**
 
 #### I. Example Response: Login berhasil
+
+```
+[POST] {base_url}/api/user/register?email=user@example.com&password=12345678
+```
+
 ```json
 {
     "status": 200,
@@ -1735,31 +1623,25 @@ URL: http://flight-api.test/api/user/login
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### II. Example Request: Login gagal
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| email | user@example.com |  |
-| password | 12345678abc |  |
-
-
-
-***Body: None***
-
-
+| Key      | Value    | Description                                |
+| -------- | -------- | ------------------------------------------ |
+| email    | `String` | Email yang sudah didaftarkan sebelumnya    |
+| password | `String` | Password yang sudah didaftarkan sebelumnya |
 
 #### II. Example Response: Login gagal
+
+```
+[POST] {base_url}/api/user/register?email=user@example.com&password=12345678abc
+```
+
 ```json
 {
     "status": 401,
@@ -1770,51 +1652,38 @@ URL: http://flight-api.test/api/user/login
 }
 ```
 
-
-***Status Code:*** 401
+**_Status Code:_** 401
 
 <br>
 
-
-
 ### 3. API Key Reset
-
 
 Endpoint `/api/key/reset` digunakan untuk membuat ulang API Key yang sudah anda punya sebelumnya. Membuat ulang API Key mungkin anda perlukan ketika orang lain sudah mengetahui API Key anda dan anda tidak ingin orang tersebut menggunakan API Key milik anda. Berikut contoh penggunaan parameternya:
 
+**_Endpoint:_**
 
-***Endpoint:***
-
-```bash
-Method: PATCH
-Type: 
-URL: http://flight-api.test/api/key/reset
+```
+[PATCH] {base_url}/api/key/reset
 ```
 
-
-
-***More example Requests/Responses:***
-
+**_More example Requests/Responses:_**
 
 #### I. Example Request: Reset key berhasil
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| email | user@example.com | Email anda |
-| password | 12345678 | Password anda |
-| api_key | OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs | API Key lama anda |
-
-
-
-***Body: None***
-
-
+| Key      | Value    | Description       |
+| -------- | -------- | ----------------- |
+| email    | `String` | Email anda        |
+| password | `String` | Password anda     |
+| api_key  | `String` | API Key lama anda |
 
 #### I. Example Response: Reset key berhasil
+
+```
+[PATCH] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs
+```
+
 ```json
 {
     "status": 200,
@@ -1826,34 +1695,29 @@ URL: http://flight-api.test/api/key/reset
 }
 ```
 
-
-***Status Code:*** 200
+**_Status Code:_** 200
 
 <br>
 
-
-
 #### II. Example Request: Reset key gagal
 
+**_Query:_**
 
-
-***Query:***
-
-| Key | Value | Description |
-| --- | ------|-------------|
-| email | user@example.com | Email anda |
-| password | 12345678 | Password anda |
-| api_key | abcdefghijklmnopqrstuvwxyz | API Key lama anda |
-
-
-
-***Body: None***
-
-
+| Key      | Value    | Description       |
+| -------- | -------- | ----------------- |
+| email    | `String` | Email anda        |
+| password | `String` | Password anda     |
+| api_key  | `String` | API Key lama anda |
 
 #### II. Example Response: Reset key gagal
+
+```
+[PATCH] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=abcdefghijklmnopqrstuvwxyz
+```
+
 ```json
 {
+    "status": 401,
     "error": {
         "code": "invalid_api_key",
         "message": "API key tidak valid."
@@ -1861,14 +1725,4 @@ URL: http://flight-api.test/api/key/reset
 }
 ```
 
-
-***Status Code:*** 401
-
-<br>
-
-
-
----
-[Back to top](#-flight-api-documetation-)
-
->Generated at 2023-06-02 18:36:27 by [docgen](https://github.com/thedevsaddam/docgen)
+**_Status Code:_** 401
