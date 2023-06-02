@@ -33,6 +33,7 @@ class Flight extends Model
     {
         if (!$apiKey) {
             return [
+                'status' => 401,
                 'error' => [
                     'code' => 'missing_api_key',
                     'message' => 'Anda harus memasukan API key untuk menggunakan layanan kami. Lihat dokumentasi bagaimana cara mendapatkan API key.'
@@ -44,6 +45,7 @@ class Flight extends Model
 
         if (!$keys) {
             return [
+                'status' => 401,
                 'error' => [
                     'code' => 'invalid_api_key',
                     'message' => 'API key tidak valid.'
