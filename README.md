@@ -1,10 +1,10 @@
 <h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</h1>
 
-# Kelompok 3 - SI-44-06
+## Kelompok 3 - SI-44-06
 
 Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi Aplikasi Enterprise
 
-# Anggota Kelompok
+## Anggota Kelompok
 
 | No  | Nama                                                                     | NIM        |
 | --- | ------------------------------------------------------------------------ | ---------- |
@@ -16,6 +16,6 @@ Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi
 
 <br>
 
-# API Documentation
+## API Documentation
 
 Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 📄](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)
