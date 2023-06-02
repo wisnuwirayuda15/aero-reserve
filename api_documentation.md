@@ -26,28 +26,49 @@ Untuk menggunakan API Key, anda cukup memberikan parameter `api_key` dengan valu
 
 ## Endpoints
 
-* [Flight Tickets](#flight-tickets)
-    1. [Flight Tickets](#1-flight-tickets)
-        * [Tanpa parameter opsional](#i-example-request-tanpa-parameter-opsional)
-        * [id](#ii-example-request-id)
-        * [search](#iii-example-request-search)
-        * [select_only](#iv-example-request-select_only)
-        * [class](#v-example-request-class)
-        * [sort_by](#vi-example-request-sort_by)
-        * [price](#vii-example-request-price)
-        * [limit](#viii-example-request-limit)
-        * [paginate](#ix-example-request-paginate)
-        * [paginate with page](#x-example-request-paginate-with-page)
-* [User](#user)
-    1. [Register](#1-register)
-        * [Registrasi berhasil](#i-example-request-registrasi-berhasil)
-        * [Registrasi gagal](#ii-example-request-registrasi-gagal)
-    1. [Login](#2-login)
-        * [Login berhasil](#i-example-request-login-berhasil)
-        * [Login gagal](#ii-example-request-login-gagal)
-    1. [API Key Reset](#3-api-key-reset)
-        * [Reset key berhasil](#i-example-request-reset-key-berhasil)
-        * [Reset key gagal](#ii-example-request-reset-key-gagal)
+- [✈️ Flight-API Documetation 🌍](#️-flight-api-documetation-)
+- [Getting Started](#getting-started)
+    - [API Key](#api-key)
+  - [Variables](#variables)
+  - [Endpoints](#endpoints)
+  - [Flight Tickets](#flight-tickets)
+    - [1. Flight Tickets](#1-flight-tickets)
+      - [I. Example Request: Tanpa parameter opsional](#i-example-request-tanpa-parameter-opsional)
+      - [I. Example Response: Tanpa parameter opsional](#i-example-response-tanpa-parameter-opsional)
+      - [II. Example Request: id](#ii-example-request-id)
+      - [II. Example Response: id](#ii-example-response-id)
+      - [III. Example Request: search](#iii-example-request-search)
+      - [III. Example Response: search](#iii-example-response-search)
+      - [IV. Example Request: select\_only](#iv-example-request-select_only)
+      - [IV. Example Response: select\_only](#iv-example-response-select_only)
+      - [V. Example Request: class](#v-example-request-class)
+      - [V. Example Response: class](#v-example-response-class)
+      - [VI. Example Request: sort\_by](#vi-example-request-sort_by)
+      - [VI. Example Response: sort\_by](#vi-example-response-sort_by)
+      - [VII. Example Request: price](#vii-example-request-price)
+      - [VII. Example Response: price](#vii-example-response-price)
+      - [VIII. Example Request: limit](#viii-example-request-limit)
+      - [VIII. Example Response: limit](#viii-example-response-limit)
+      - [IX. Example Request: paginate](#ix-example-request-paginate)
+      - [IX. Example Response: paginate](#ix-example-response-paginate)
+      - [X. Example Request: paginate with page](#x-example-request-paginate-with-page)
+      - [X. Example Response: paginate with page](#x-example-response-paginate-with-page)
+  - [User](#user)
+    - [1. Register](#1-register)
+      - [I. Example Request: Registrasi berhasil](#i-example-request-registrasi-berhasil)
+      - [I. Example Response: Registrasi berhasil](#i-example-response-registrasi-berhasil)
+      - [II. Example Request: Registrasi gagal](#ii-example-request-registrasi-gagal)
+      - [II. Example Response: Registrasi gagal](#ii-example-response-registrasi-gagal)
+    - [2. Login](#2-login)
+      - [I. Example Request: Login berhasil](#i-example-request-login-berhasil)
+      - [I. Example Response: Login berhasil](#i-example-response-login-berhasil)
+      - [II. Example Request: Login gagal](#ii-example-request-login-gagal)
+      - [II. Example Response: Login gagal](#ii-example-response-login-gagal)
+    - [3. API Key Reset](#3-api-key-reset)
+      - [I. Example Request: Reset key berhasil](#i-example-request-reset-key-berhasil)
+      - [I. Example Response: Reset key berhasil](#i-example-response-reset-key-berhasil)
+      - [II. Example Request: Reset key gagal](#ii-example-request-reset-key-gagal)
+      - [II. Example Response: Reset key gagal](#ii-example-response-reset-key-gagal)
 
 --------
 
@@ -80,7 +101,7 @@ Endpoint `/api/flights` digunakan untuk mendapatkan data-data tiket penerbangan 
 ```bash
 Method: GET
 Type: 
-URL: {{base_url}}/api/flights
+URL: http://flight-api.test/api/flights
 ```
 
 
@@ -1581,7 +1602,7 @@ Endpoint `/api/user/register` digunakan untuk mendaftarkan akun baru. Setelah me
 ```bash
 Method: POST
 Type: 
-URL: {{base_url}}/api/user/register
+URL: http://flight-api.test/api/user/register
 ```
 
 
@@ -1674,7 +1695,7 @@ Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan.
 ```bash
 Method: POST
 Type: 
-URL: {{base_url}}/api/user/login
+URL: http://flight-api.test/api/user/login
 ```
 
 
@@ -1767,7 +1788,7 @@ Endpoint `/api/key/reset` digunakan untuk membuat ulang API Key yang sudah anda 
 ```bash
 Method: PATCH
 Type: 
-URL: {{base_url}}/api/key/reset
+URL: http://flight-api.test/api/key/reset
 ```
 
 
