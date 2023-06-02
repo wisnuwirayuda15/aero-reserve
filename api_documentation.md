@@ -1545,7 +1545,7 @@ Endpoint `/api/user/register` digunakan untuk mendaftarkan akun baru. Setelah me
 }
 ```
 
-**_Status Code:_** 0
+**_Status Code:_** 201
 
 <br>
 
