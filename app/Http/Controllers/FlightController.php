@@ -33,7 +33,7 @@ class FlightController extends Controller
                 return response()->json([
                     'status' => 404,
                     'error' => [
-                        'code' => '404_not_found',
+                        'code' => 'data_not_found',
                         'message' => 'Data tidak ditemukan.'
                     ]
                 ], 404);
@@ -48,7 +48,7 @@ class FlightController extends Controller
                 'data' => $flights
             ], 200);
         } catch (Exception $e) {
-            return $e;
+            // return $e;
 
             return response()->json([
                 'status' => 400,
