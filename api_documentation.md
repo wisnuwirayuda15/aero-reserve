@@ -1614,7 +1614,7 @@ Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan.
         "email": "user@example.com",
         "registered_at": "02 June 2023, 12:55 AM",
         "api_key": "OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs",
-        "api_usage": 0
+        "key_usage": 0
     }
 }
 ```

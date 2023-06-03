@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('flights', FlightController::class);
 
-Route::post('user/register', [UserController::class, 'register'])->name('user.register');
+Route::post('user/register', [UserController::class, 'register'])->name('register');
 
-Route::post('user/login', [UserController::class, 'login'])->name('user.login');
+Route::post('user/login', [UserController::class, 'login'])->name('login');
 
 Route::patch('key/reset', [UserController::class, 'keyReset'])->name('key.reset');

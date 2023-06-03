@@ -29,35 +29,6 @@ class Flight extends Model
         return $response->json();
     }
 
-    public static function keyCheck($apiKey)
-    {
-        if (!$apiKey) {
-            return [
-                'status' => 401,
-                'error' => [
-                    'code' => 'missing_api_key',
-                    'message' => 'Anda harus memasukan API key untuk menggunakan layanan kami. Lihat dokumentasi bagaimana cara mendapatkan API key.'
-                ]
-            ];
-        }
-
-        $keys = Key::whereRaw("BINARY api_key = '$apiKey'")->first();
-
-        if (!$keys) {
-            return [
-                'status' => 401,
-                'error' => [
-                    'code' => 'invalid_api_key',
-                    'message' => 'API key tidak valid.'
-                ]
-            ];
-        }
-
-        $keys->update([
-            'usage' => $keys->usage += 1
-        ]);
-    }
-
     public function scopeId($query, $id)
     {
         if ($id) {
@@ -87,8 +58,7 @@ class Flight extends Model
                 $filters = explode(',', $filter);
                 return $query->select($filters);
             } else {
-                return $query->select($filter)
-                    ->whereNotNull($filter);
+                return $query->select($filter)->whereNotNull($filter);
             }
         }
     }
@@ -103,11 +73,10 @@ class Flight extends Model
     public function scopeWithPaginate($query, $paginate)
     {
         if ($paginate) {
-            return $query->paginate($paginate)
-                ->withQueryString();
-        } else {
-            return $query->get();
+            return $query->paginate($paginate)->withQueryString();
         }
+        
+        return $query->get();
     }
 
     public function scopePrice($query, $price)

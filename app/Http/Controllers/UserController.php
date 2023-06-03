@@ -100,7 +100,7 @@ class UserController extends Controller
                     'email' => $user->email,
                     'registered_at' => $user->created_at->format('d F Y, h:i A'),
                     'api_key' => $user->key->api_key,
-                    'api_usage' => $user->key->usage,
+                    'key_usage' => $user->key->usage,
                 ]
             ], 200);
         };
