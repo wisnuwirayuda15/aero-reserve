@@ -1324,8 +1324,6 @@ Endpoint `/api/flights` digunakan untuk mendapatkan data-data tiket penerbangan 
 | paginate | `Integer` | Jumlah data dalam satu halaman |
 | page     | `Integer` | Nomor halaman paginasi         |
 
-**_Body: None_**
-
 #### X. Example Response: paginate with page
 
 ```
@@ -1601,12 +1599,10 @@ Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan.
 | email    | `String` | Email yang sudah didaftarkan sebelumnya    |
 | password | `String` | Password yang sudah didaftarkan sebelumnya |
 
-**_Body: None_**
-
 #### I. Example Response: Login berhasil
 
 ```
-[POST] {base_url}/api/user/register?email=user@example.com&password=12345678
+[POST] {base_url}/api/user/login?email=user@example.com&password=12345678
 ```
 
 ```json
@@ -1639,7 +1635,7 @@ Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan.
 #### II. Example Response: Login gagal
 
 ```
-[POST] {base_url}/api/user/register?email=user@example.com&password=12345678abc
+[POST] {base_url}/api/user/login?email=user@example.com&password=12345678abc
 ```
 
 ```json
