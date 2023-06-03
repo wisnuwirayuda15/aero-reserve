@@ -45,4 +45,17 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if (env('SHOW_ERROR_RENDER') != true) {
+            return response()->json([
+                'status' => 400,
+                'error' => [
+                    'code' => 'request_error',
+                    'message' => 'Request error. Pastikan endpoint, parameter, dan value yang anda masukan sudah sesuai.'
+                ]
+            ], 400);
+        }
+    }
 }
