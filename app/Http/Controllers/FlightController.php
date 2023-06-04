@@ -55,6 +55,10 @@ class FlightController extends Controller
     {
         $response = Flight::fetchData(env('API_KEY_1'));
 
+        if ($response['error']) {
+            return response()->json($response, 401);
+        }
+
         return view('index', [
             'api_result' => $response['data']
         ]);
