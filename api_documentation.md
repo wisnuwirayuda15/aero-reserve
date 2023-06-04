@@ -1,6 +1,6 @@
-<h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Flight-API Documetation 📄</h1>
+<h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Aero Reserve API Documetation 📄</h1>
 
-Dokumentasi ini menjelaskan bagaimana cara mengakses data ticket penerbangan pada layanan kami yaitu ✈️ **Flight-API** 🌍. Kami menyediakan berbagai macam data ticket penerbangan yang bisa anda gunakan untuk kebutuhan atau aplikasi anda.
+Dokumentasi ini menjelaskan bagaimana cara mengakses data tiket penerbangan pada layanan kami yaitu ✈️ **Aero Reserve** 🌍. Kami menyediakan berbagai macam data tiket penerbangan yang bisa anda gunakan untuk kebutuhan atau aplikasi anda.
 
 # Getting Started
 
@@ -12,7 +12,7 @@ Untuk menggunakan API Key, anda cukup memberikan parameter `api_key` dengan valu
 
 ### Base URL
 
-Anda bisa menggunakan URL `http://flight-api.test` untuk semua endpoint yang tersedia.
+Anda bisa menggunakan base URL `https://aero-reserve.000webhostapp.com` untuk semua endpoint yang tersedia.
 
 ## Navigation
 

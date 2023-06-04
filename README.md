@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Flight-API 🌍</h1>
+<h1 align="center" style="font-weight: bold; font-size: 50px">✈️ Aero Reserve 🌍</h1>
 
 ## Kelompok 3 - SI-44-06
 
@@ -18,4 +18,4 @@ Repository ini dibuat bertujuan untuk memenuhi tugas besar mata kuliah Integrasi
 
 ## API Documentation
 
-Dokumentasi API dapat anda lihat disini [✈️ Flight-API Documentation 📄](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)
+Kami menyediakan data-data tiket penerbangan dari berbagai maskapai yang bisa anda akses lewat layanan API kami. Dokumentasi API dapat anda lihat disini [✈️ Aero Reserve Documentation 📄](https://github.com/wisnuwirayuda15/flight-restful-api/blob/main/api_documentation.md)
