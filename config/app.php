@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Flight API'),
+    'name' => env('APP_NAME', 'Aero Reserve'),
 
     /*
     |--------------------------------------------------------------------------
