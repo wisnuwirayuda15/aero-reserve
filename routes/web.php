@@ -20,7 +20,7 @@ Route::get('/', function () {
         'status' => 403,
         'error' => [
             'code' => 'forbidden',
-            'message' => 'Lihat dokumentasi untuk menggunakan layanan kami. https://github.com/wisnuwirayuda15/flight-restful-api '
+            'message' => 'Lihat dokumentasi untuk menggunakan layanan kami. https://github.com/wisnuwirayuda15/aero-reserve'
         ]
     ], 403);
 });
