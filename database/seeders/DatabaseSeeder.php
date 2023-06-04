@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $response = Flight::fetchData(env('API_KEY_1'));
+        $response = Flight::fetchData(env('API_KEY_2'));
 
         foreach ($response['data'] as $data) {
             $airline = $data['airline']['name'] . ' (' . $data['flight']['iata'] . ')';
