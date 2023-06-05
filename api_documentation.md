@@ -1653,13 +1653,14 @@ Endpoint `/api/user/login` digunakan untuk masuk ke akun yang sudah didaftarkan.
 <br>
 
 ### 3. API Key Reset
+**_NOTE: dikarenakan methode PATCH atau PUT tidak didukung dari versi gratis 000webhost, maka untuk sementara kami menggunakan method POST._**
 
 Endpoint `/api/key/reset` digunakan untuk membuat ulang API Key yang sudah anda punya sebelumnya. Membuat ulang API Key mungkin anda perlukan ketika orang lain sudah mengetahui API Key anda dan anda tidak ingin orang tersebut menggunakan API Key milik anda. Berikut contoh penggunaan parameternya:
 
 **_Endpoint:_**
 
 ```
-[PATCH] {base_url}/api/key/reset
+[POST] {base_url}/api/key/reset
 ```
 
 **_More example Requests/Responses:_**
@@ -1677,7 +1678,7 @@ Endpoint `/api/key/reset` digunakan untuk membuat ulang API Key yang sudah anda 
 #### I. Example Response: Reset key berhasil
 
 ```
-[PATCH] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs
+[POST] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=OjDoXb9vV28uhnIHsLz3pcOPRjJhhUfs
 ```
 
 ```json
@@ -1708,7 +1709,7 @@ Endpoint `/api/key/reset` digunakan untuk membuat ulang API Key yang sudah anda 
 #### II. Example Response: Reset key gagal
 
 ```
-[PATCH] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=abcdefghijklmnopqrstuvwxyz
+[POST] {base_url}/api/key/reset?email=user@example.com&password=12345678&api_key=abcdefghijklmnopqrstuvwxyz
 ```
 
 ```json
